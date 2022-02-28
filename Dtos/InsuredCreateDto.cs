@@ -22,6 +22,7 @@ namespace GridironInsuranceAPI.Dtos
         public string? State { get; set; } 
         [Required]
         public int InsuredValueAmount { get; set; }
+        public int RateValue { get; set; }
     }
 }
 

@@ -4,7 +4,7 @@ using Newtonsoft.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var myAllowSpecificOrigins = "_myAllowSpecificOrigins";
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 
 // Add services to the container.
@@ -27,12 +27,12 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 //Enable CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: myAllowSpecificOrigins,
+    options.AddPolicy(name: MyAllowSpecificOrigins,
         builder =>
         {
             builder.WithOrigins("http://localhost:4200")
-            .AllowAnyMethod()
-            .AllowAnyHeader();
+            .AllowAnyHeader()
+            .AllowAnyMethod();
         });
 });
 
@@ -46,8 +46,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
 //add CORS
-app.UseCors(myAllowSpecificOrigins);
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 

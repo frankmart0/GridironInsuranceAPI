@@ -11,6 +11,7 @@
         public string ZipCode { get; set; } = string.Empty;
         public string State { get; set; } = string.Empty;
         public int InsuredValueAmount { get; set; }
+        public int RateValue { get; set; }
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 
 namespace GridironInsuranceAPI.Models
 {
@@ -13,13 +14,36 @@ namespace GridironInsuranceAPI.Models
         [StringLength(20)]
         public string? LastName { get; set; } 
         [Required]
-        public DateTime? EffectiveDate { get; set; }
+        public DateTime EffectiveDate { get; set; } = new DateTime(); 
         public int AddressId { get; set; }
         [Required]
         public Address? Address { get; set; }
-        public int RateId { get; set; }
+        public int Rateid { get; set; }
         [Required]
         public Rate? Rate { get; set; }
+
+        public int RateValue
+        {
+            get
+            {
+                return RateValue;
+            }
+
+            set
+
+            {
+                if (Address?.State == "FL")
+                {
+                    RateValue = Convert.ToInt32(250000 * 0.15 / 100);
+                }
+                else
+                {
+                    RateValue = Convert.ToInt32(250000 * 0.17 / 100);
+                }
+            }
+
+        }
+
     }
 }
 

@@ -17,7 +17,10 @@ namespace GridironInsuranceAPI.Profiles
             .ForMember(d => d.City, opt => { opt.MapFrom(s => s.Address.City); })
             .ForMember(d => d.ZipCode, opt => { opt.MapFrom(s => s.Address.ZipCode); })
             .ForMember(d => d.State, opt => { opt.MapFrom(s => s.Address.State); })
-            .ForMember(d => d.InsuredValueAmount, opt => { opt.MapFrom(s => s.Rate.InsuredValueAmount); });
+            .ForMember(d => d.InsuredValueAmount, opt => { opt.MapFrom(s => s.Rate.InsuredValueAmount); })
+
+            .ForMember(d => d.RateValue, opt => { opt.MapFrom(s => s.RateValue); });
+
 
 
             CreateMap<InsuredCreateDto, Insured>()
@@ -27,7 +30,9 @@ namespace GridironInsuranceAPI.Profiles
             .ForPath(d => d.Address.City, opt => { opt.MapFrom(s => s.City); })
             .ForPath(d => d.Address.ZipCode, opt => { opt.MapFrom(s => s.ZipCode); })
             .ForPath(d => d.Address.State, opt => { opt.MapFrom(s => s.State); })
-            .ForPath(d => d.Rate.InsuredValueAmount, opt => { opt.MapFrom(s => s.InsuredValueAmount); });
+            .ForPath(d => d.Rate.InsuredValueAmount, opt => { opt.MapFrom(s => s.InsuredValueAmount); })
+            .ForPath(d => d.RateValue, opt => { opt.MapFrom(s => s.RateValue); });
+
 
             CreateMap<InsuredUpdateDto, Insured>()
             .ForMember(d => d.FirstName, opt => { opt.MapFrom(s => s.FirstName); })
@@ -36,7 +41,9 @@ namespace GridironInsuranceAPI.Profiles
             .ForPath(d => d.Address.City, opt => { opt.MapFrom(s => s.City); })
             .ForPath(d => d.Address.ZipCode, opt => { opt.MapFrom(s => s.ZipCode); })
             .ForPath(d => d.Address.State, opt => { opt.MapFrom(s => s.State); })
-            .ForPath(d => d.Rate.InsuredValueAmount, opt => { opt.MapFrom(s => s.InsuredValueAmount); });
+            .ForPath(d => d.Rate.InsuredValueAmount, opt => { opt.MapFrom(s => s.InsuredValueAmount); })
+            .ForPath(d => d.RateValue, opt => { opt.MapFrom(s => s.RateValue); });
+
 
             CreateMap<Insured, InsuredUpdateDto>()
             .ForMember(d => d.FirstName, opt => { opt.MapFrom(s => s.FirstName); })
@@ -45,7 +52,9 @@ namespace GridironInsuranceAPI.Profiles
             .ForPath(d => d.City, opt => { opt.MapFrom(s => s.Address.City); })
             .ForPath(d => d.ZipCode, opt => { opt.MapFrom(s => s.Address.ZipCode); })
             .ForPath(d => d.State, opt => { opt.MapFrom(s => s.Address.State); })
-            .ForPath(d => d.InsuredValueAmount, opt => { opt.MapFrom(s => s.Rate.InsuredValueAmount); });
+            .ForPath(d => d.InsuredValueAmount, opt => { opt.MapFrom(s => s.Rate.InsuredValueAmount); })
+            .ForPath(d => d.RateValue, opt => { opt.MapFrom(s => s.RateValue); });
+
 
         }
     }
